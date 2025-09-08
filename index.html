@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="bg-green-700">
         <div class="flex justify-between items-center px-8 mx-8 py-6 text-white">
@@ -18,14 +20,32 @@
             <button class="bg-yellow-500 text-green-700 px-4 py-2 rounded-full">Plant a Tree</button>
         </div>
     </div>
-    <div class="flex items-center justify-around bg-green-50">
+    <div class="flex items-center justify-around bg-green-100">
         <img src="./assets/hero-leaf1.png" alt="" class="h-1/3 w-1/3">
         <div class="mx-4 text-center w-full">
             <h2 class="text-4xl my-2 font-semibold">Plant a Tree, Grow a Future</h2>
-            <p class="text-sm my-2">Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
+            <p class="text-sm my-2">Join our mission to plant 1 million trees and make the Earth greener for future
+                generations.</p>
             <button class="bg-yellow-500 text-green-700 px-4 py-2 rounded-full my-2">Get Involved</button>
         </div>
         <img src="./assets/hero-leaf2.png" alt="" class="h-1/3 w-1/3">
     </div>
+    <div class="bg-green-50 py-8">
+        <h2 class="text-center text-xl font-semibold mb-8">Choose Your Trees</h2>
+        <div class="mx-16 flex">
+            <div id="category" class="w-1/4">
+                <h3 class="my-2 font-semibold">Categories</h3>
+                <button class="rounded bg-green-700 text-white py-2 px-4 w-full">All Trees</button>
+            </div>
+            <div class="grid grid-cols-3 gap-4 px-4 w-3/4" id="trees">
+            </div>
+            <div id="category" class="w-1/4">
+                <h3>Categories</h3>
+                <button class="rounded bg-green-700 text-white py-2 px-4 w-full">tree</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body>
+
 </html>
