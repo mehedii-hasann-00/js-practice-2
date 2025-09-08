@@ -1,5 +1,39 @@
 
 let cart = [];
+const loader_skeleton = `<div class="bg-white shadow-lg rounded-lg p-4 animate-pulse">
+                    <div class="bg-gray-300 h-32 w-full rounded-lg mb-4"></div>
+                    <div class="bg-gray-300 h-4 w-3/4 rounded mb-2"></div>
+                    <div class="bg-gray-300 h-3 w-full rounded mb-1"></div>
+                    <div class="bg-gray-300 h-3 w-2/3 rounded mb-4"></div>
+                    <div class="flex justify-between mb-4">
+                        <div class="bg-gray-300 h-6 w-16 rounded"></div>
+                        <div class="bg-gray-300 h-6 w-10 rounded"></div>
+                    </div>
+                    <div class="bg-gray-300 h-8 w-full rounded"></div>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-4 animate-pulse">
+                    <div class="bg-gray-300 h-32 w-full rounded-lg mb-4"></div>
+                    <div class="bg-gray-300 h-4 w-3/4 rounded mb-2"></div>
+                    <div class="bg-gray-300 h-3 w-full rounded mb-1"></div>
+                    <div class="bg-gray-300 h-3 w-2/3 rounded mb-4"></div>
+                    <div class="flex justify-between mb-4">
+                        <div class="bg-gray-300 h-6 w-16 rounded"></div>
+                        <div class="bg-gray-300 h-6 w-10 rounded"></div>
+                    </div>
+                    <div class="bg-gray-300 h-8 w-full rounded"></div>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-4 animate-pulse">
+                    <div class="bg-gray-300 h-32 w-full rounded-lg mb-4"></div>
+                    <div class="bg-gray-300 h-4 w-3/4 rounded mb-2"></div>
+                    <div class="bg-gray-300 h-3 w-full rounded mb-1"></div>
+                    <div class="bg-gray-300 h-3 w-2/3 rounded mb-4"></div>
+                    <div class="flex justify-between mb-4">
+                        <div class="bg-gray-300 h-6 w-16 rounded"></div>
+                        <div class="bg-gray-300 h-6 w-10 rounded"></div>
+                    </div>
+                    <div class="bg-gray-300 h-8 w-full rounded"></div>
+                </div>`;
+document.getElementById("trees").innerHTML = loader_skeleton;
 
 fetch('https://openapi.programming-hero.com/api/categories')
     .then(response => response.json())
@@ -16,12 +50,13 @@ fetch('https://openapi.programming-hero.com/api/plants')
     .then(response => response.json())
     .then(data => {
         const tree = document.getElementById("trees");
+        tree.innerHTML = '';
         for (let i = 0; i < data.plants.length; i++) {
             const temp = `<div class="bg-white shadow-lg rounded-lg p-4" id="${data.plants[i].id}">
                     <img src="${data.plants[i].image}" class="h-32 w-64 rounded-lg" alt="">
                     <p class="py-2 plant_name cursor-pointer" onClick="setModalBox(${data.plants[i].id})">${data.plants[i].name}</p>
                     
-                    <p class="text-xs  py-2">${data.plants[i].description}</p>
+                    <p class="text-xs py-2">${data.plants[i].description}</p>
                     <div class="flex justify-between ">
                         <button class="rounded-full bg-green-100 text-green-700 text-xs px-2 py-2">${data.plants[i].category}</button>
                         <p>${data.plants[i].price}</p>
@@ -33,6 +68,8 @@ fetch('https://openapi.programming-hero.com/api/plants')
     });
 
 function show_category(btn) {
+    document.getElementById("trees").innerHTML = loader_skeleton;
+
     const id = btn.getAttribute("id");
     fetch(`https://openapi.programming-hero.com/api/category/${id}`)
         .then(response => response.json())
@@ -65,6 +102,8 @@ function show_category(btn) {
 }
 
 function show_all(btn) {
+    document.getElementById("trees").innerHTML = loader_skeleton;
+
     fetch('https://openapi.programming-hero.com/api/plants')
         .then(response => response.json())
         .then(data => {
@@ -104,7 +143,7 @@ function setModalBox(id) {
 
             const modalWrapper = document.createElement("div");
             modalWrapper.id = "modal";
-            modalWrapper.className = "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50";
+            modalWrapper.className = "fixed inset-0 flex items-center justify-center";
 
             modalWrapper.innerHTML = `
         <div class="bg-white p-6 rounded shadow-lg w-1/3">
