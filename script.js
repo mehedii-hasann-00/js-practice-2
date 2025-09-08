@@ -146,7 +146,7 @@ function setModalBox(id) {
             modalWrapper.className = "fixed inset-0 flex items-center justify-center";
 
             modalWrapper.innerHTML = `
-        <div class="bg-white p-6 rounded shadow-lg w-1/3">
+        <div class="bg-white p-6 rounded shadow-[0_25px_80px_rgba(0,0,0,0.8)] w-3/4 lg:w-1/3">
           <img src="${plant.image}" class="h-32 w-full rounded-lg" alt="">
           <p class="py-2 font-bold">${plant.name}</p>
           <p class="text-xs py-2">${plant.description}</p>
